@@ -138,33 +138,33 @@ function search(pop) {
 let form = document.querySelector("#cityForm");
 form.addEventListener("submit", search);
 
-//CELCIUS & FAR //
-// function Celcius() {
-//   let currentDegrees = document.querySelector(".current-degrees");
-//   currentDegrees.innerHTML = `${newTemp} °C`;
-// }
+//--START -- Current Button. detects your current location//
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(myPosition);
+}
 
-// function Far() {
-//   currentDegrees.innerHTML = `${newTemp} °F`;
-// }
+function myPosition(thisPosition) {
+  let longitude = thisPosition.coords.longitude;
+  let latitude = thisPosition.coords.latitude;
+  let unit = "metric";
+  let MyLocationApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=dcd07d1aa5fa314f984ce1fb0e330deb&units=${unit}`;
+  axios.get(MyLocationApiUrl).then(MyNewDegrees);
+}
 
-// let c = document.querySelector("#c");
-// let f = document.querySelector("#f");
-// c.addEventListener("click", Celcius);
-// f.addEventListener("click", Far);
+function MyNewDegrees(theDegrees) {
+  let myTemperature = theDegrees.data.main.temp;
+  let myHumidity = theDegrees.data.main.humidity;
+  let myCityNewName = theDegrees.data.name;
+  let myCountryNewName = theDegrees.data.sys.country;
+  let humid = document.querySelector("#humid");
+  let currentDegrees = document.querySelector(".current-degrees");
+  let newCity = document.querySelector(".current-country");
+  currentDegrees.innerHTML = `${myTemperature} °C  | ${Math.ceil(
+    (myTemperature * 9) / 5 + 32
+  )} °F`;
+  humid.innerHTML = `with a humidity of ${myHumidity}%`;
+  newCity.innerHTML = `in ${myCountryNewName}, ${myCityNewName}`;
+}
 
-// let dateOne = document.querySelector("#date1");
-// let dateTwo = document.querySelector("#date2");
-// let dateThree = document.querySelector("#date3");
-// let dateFour = document.querySelector("#date4");
-// let dateFive = document.querySelector("#date5");
-// dateOne.innerHTML = `${nameMonths[months]} ${Day + 1}, ${year}`;
-// dateTwo.innerHTML = `${nameMonths[months]} ${Day + 2}, ${year}`;
-// dateThree.innerHTML = `${nameMonths[months]} ${Day + 3}, ${year}`;
-// dateFour.innerHTML = `${nameMonths[months]} ${Day + 4}, ${year}`;
-// dateFive.innerHTML = `${nameMonths[months]} ${Day + 5}, ${year}`;
-
-// let weekOne = document.querySelector("#week1");
-// weekOne.innerHTML = `${nameWeeks[Weeks + 1]}`;
-// let weekTwo = document.querySelector("#week2");
-// weekTwo.innerHTML = `${nameWeeks[Weeks - 1]}`;
+let currentButton = document.querySelector("#currentButton");
+currentButton.addEventListener("click", getCurrentPosition);

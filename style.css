@@ -42,7 +42,7 @@ input[value="Search"] {
 }
 
 
-input[value="Current"] {
+#currentButton {
   background-color: white;
   width: 120pt;
   height: 44.3478pt;
