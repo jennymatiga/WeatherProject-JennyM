@@ -118,7 +118,8 @@ p {
 }
 
 .sub-row {
-  padding: 10px 50px 50px 50px;
+  padding-bottom: 50px;
+ 
 }
 
 .sub-weather-degrees {
