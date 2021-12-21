@@ -1,7 +1,10 @@
 // -- START --let variables //
+
+//dating if statement//
+
+let currentDate = new Date();
 let timeAndDay = document.querySelector(".timeAndDay");
 let greetings = document.querySelector(".greetings");
-let currentDate = new Date();
 let Day = currentDate.getDate();
 let minute = currentDate.getMinutes();
 let months = currentDate.getMonth();
@@ -99,10 +102,117 @@ function search(pop) {
   pop.preventDefault();
 
   function realData(value) {
+    //START--date-time - in each countries//
+    let NewDate = `${value.data.dt}`;
+    let standardDate = new Date(NewDate * 1000);
+    alert(standardDate);
+
+    // let Day = standardDate.getDate();
+    // let minute = standardDate.getMinutes();
+    // let months = standardDate.getMonth();
+    // let Weeks = standardDate.getDay();
+    // let year = standardDate.getFullYear();
+    // let TimeHour = standardDate.getHours();
+
+    // let currentDate = new Date();
+    let timeAndDay = document.querySelector(".timeAndDay");
+    let greetings = document.querySelector(".greetings");
+    let Day = standardDate.getDate();
+    let minute = standardDate.getMinutes();
+    let months = standardDate.getMonth();
+    let Weeks = standardDate.getDay();
+    let year = standardDate.getFullYear();
+    let TimeHour = standardDate.getHours();
+    let nameMonths = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    let nameWeeks = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let textCurrentDate = document.querySelector(".current-date");
+    textCurrentDate.innerHTML = `${nameMonths[months]} ${Day}, ${year},`;
+    // -- END --let variables //
+
+    //--START-- if statement for time that also changes introduction //
+    //***** IF ELSE STATEMENT 1 ******//
+    if (TimeHour === 0) {
+      //minute if statement//
+      if (minute < 10) {
+        minute = `0${minute}`;
+      } //minute if statement--END//
+      greetings.innerHTML = `Hey, Early bird! its`;
+      timeAndDay.innerHTML = `${nameWeeks[Weeks]},<strong style="font-weight: 700;"> 12: ${minute} am </strong>and its`;
+    }
+    //***** IF ELSE STATEMENT 2 ******//
+    else if (TimeHour < 12) {
+      //minute if statement//
+      if (minute < 10) {
+        minute = `0${minute}`;
+      } //minute if statement--END//
+      greetings.innerHTML = `Good Morning! Today is`;
+      timeAndDay.innerHTML = `${nameWeeks[Weeks]},<strong style="font-weight: 700;"> ${TimeHour}: ${minute} am </strong>and its`;
+    }
+    //***** IF ELSE STATEMENT 3 ******//
+    else if (TimeHour > 17) {
+      //minute if statement//
+      if (minute < 10) {
+        minute = `0${minute}`;
+      }
+
+      //minute if statement--END//
+      greetings.innerHTML = `Good Evening! Today is`;
+      timeAndDay.innerHTML = `${
+        nameWeeks[Weeks]
+      }, <strong style="font-weight: 700;">${
+        TimeHour - 12
+      }: ${minute} pm </strong> and its`;
+    }
+    //***** IF ELSE STATEMENT 4 ******//
+    else if (TimeHour === 12) {
+      //minute if statement//
+      if (minute < 10) {
+        minute = `0${minute}`;
+      } //minute if statement--END//
+      greetings.innerHTML = `Hello There! Today is`;
+      timeAndDay.innerHTML = `${nameWeeks[Weeks]}, <strong style="font-weight: 700;">${TimeHour}: ${minute} pm </strong> and its`;
+    }
+    //***** IF ELSE STATEMENT 5 ******//
+    else {
+      //minute if statement//
+      if (minute < 10) {
+        minute = `0${minute}`;
+      } //minute if statement--END//
+      greetings.innerHTML = `Good Afternoon! Today is`;
+      timeAndDay.innerHTML = `${
+        nameWeeks[Weeks]
+      }, <strong style="font-weight: 700;">${
+        TimeHour - 12
+      }: ${minute} pm </strong> and its`;
+    }
+
+    /////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////
+    //END--date-time - in each countries//
     let NewIcon = `${value.data.weather[0].icon}`;
     let OldIcon = document.querySelector("#myicon");
-    alert(NewIcon);
-
     let newTemp = `${value.data.main.temp}`;
     let newHumidity = `${value.data.main.humidity}`;
     newTemp = Math.ceil(newTemp);
