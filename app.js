@@ -239,7 +239,7 @@ function search(pop) {
       weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">It has "few clouds" in the day.</div>`;
     } else if (NewIcon === "04d") {
       OldIcon.innerHTML = `<img src="images/04d.png" style="width: 300pt;"/>`;
-      weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">It has "broken clouds" in the day.</div>`;
+      weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">"broken clouds" in the day.</div>`;
     } else if (NewIcon === "09d") {
       OldIcon.innerHTML = `<img src="images/09d.png" style="width: 300pt;"/>`;
       weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">"shower rain" in the day.</div>`;
@@ -254,7 +254,7 @@ function search(pop) {
       weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">Its "snowing" in the day.</div>`;
     } else if (NewIcon === "50d") {
       OldIcon.innerHTML = `<img src="images/50d.png" style="width: 300pt;"/>`;
-      weatherIconSay.innerHTML = `<div style="color: #4C5588;">It "misty" in the day.</div>`;
+      weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its "misty" in the day.</div>`;
     } else if (NewIcon === "01n") {
       OldIcon.innerHTML = `<img src="images/01n.png" style="width: 300pt;"/>`;
       weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its a "clear sky" at night.</div>`;
@@ -266,7 +266,7 @@ function search(pop) {
       weatherIconSay.innerHTML = `<div style="color: #4C5588;">It has "scattered clouds" at night.</div>`;
     } else if (NewIcon === "04n") {
       OldIcon.innerHTML = `<img src="images/04n.png" style="width: 300pt;"/>`;
-      weatherIconSay.innerHTML = `<div style="color: #4C5588;">It has "broken clouds" at night.</div>`;
+      weatherIconSay.innerHTML = `<div style="color: #4C5588;">"broken clouds" at night.</div>`;
     } else if (NewIcon === "09n") {
       OldIcon.innerHTML = `<img src="images/09n.png" style="width: 300pt;"/>`;
       weatherIconSay.innerHTML = `<div style="color: #4C5588;">"shower rain" at night.</div>`;
@@ -281,7 +281,7 @@ function search(pop) {
       weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its "snowing" at night.</div>`;
     } else if (NewIcon === "50n") {
       OldIcon.innerHTML = `<img src="images/50n.png" style="width: 300pt;"/>`;
-      weatherIconSay.innerHTML = `<div style="color: #4C5588;">It "misty" at night.</div>`;
+      weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its "misty" at night.</div>`;
     }
   }
   //END -- if statement icon //
@@ -335,11 +335,68 @@ function MyNewDegrees(theDegrees) {
   let humid = document.querySelector("#humid");
   let currentDegrees = document.querySelector(".current-degrees");
   let newCity = document.querySelector(".current-country");
-  currentDegrees.innerHTML = `${myTemperature} °C  | ${Math.ceil(
-    (myTemperature * 9) / 5 + 32
-  )} °F`;
+  currentDegrees.innerHTML = `${myTemperature} °C `;
+  let NewIcon = `${theDegrees.data.weather[0].icon}`;
+  let OldIcon = document.querySelector("#myicon");
   humid.innerHTML = `with a humidity of ${myHumidity}%`;
   newCity.innerHTML = `${myCountryNewName}, ${myCityNewName}`;
+  let weatherIconSay = document.querySelector(".weatherIconSay");
+
+  if (NewIcon == "03d") {
+    OldIcon.innerHTML = `<img src="images/03d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">It has "scattered clouds" in the day.</div>`;
+  } else if (NewIcon === "01d") {
+    OldIcon.innerHTML = `<img src="images/01d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">Its a "clear sky" in the day.</div>`;
+  } else if (NewIcon === "02d") {
+    OldIcon.innerHTML = `<img src="images/02d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">It has "few clouds" in the day.</div>`;
+  } else if (NewIcon === "04d") {
+    OldIcon.innerHTML = `<img src="images/04d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">"broken clouds" in the day.</div>`;
+  } else if (NewIcon === "09d") {
+    OldIcon.innerHTML = `<img src="images/09d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">"shower rain" in the day.</div>`;
+  } else if (NewIcon === "10d") {
+    OldIcon.innerHTML = `<img src="images/10d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;"Its a "raining" in the day.</div>`;
+  } else if (NewIcon === "11d") {
+    OldIcon.innerHTML = `<img src="images/11d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">"thunderstorm" in the day.</div>`;
+  } else if (NewIcon === "13d") {
+    OldIcon.innerHTML = `<img src="images/13d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #B5E1E0;">Its "snowing" in the day.</div>`;
+  } else if (NewIcon === "50d") {
+    OldIcon.innerHTML = `<img src="images/50d.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its "misty" in the day.</div>`;
+  } else if (NewIcon === "01n") {
+    OldIcon.innerHTML = `<img src="images/01n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its a "clear sky" at night.</div>`;
+  } else if (NewIcon === "02n") {
+    OldIcon.innerHTML = `<img src="images/02n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">It has "few clouds" at night.</div>`;
+  } else if (NewIcon === "03n") {
+    OldIcon.innerHTML = `<img src="images/03n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">It has "scattered clouds" at night.</div>`;
+  } else if (NewIcon === "04n") {
+    OldIcon.innerHTML = `<img src="images/04n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">"broken clouds" at night.</div>`;
+  } else if (NewIcon === "09n") {
+    OldIcon.innerHTML = `<img src="images/09n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">"shower rain" at night.</div>`;
+  } else if (NewIcon === "10n") {
+    OldIcon.innerHTML = `<img src="images/10n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its a "raining" at night.</div>`;
+  } else if (NewIcon === "11n") {
+    OldIcon.innerHTML = `<img src="images/11n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">"thunderstorm" at night.</div>`;
+  } else if (NewIcon === "13n") {
+    OldIcon.innerHTML = `<img src="images/13n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its "snowing" at night.</div>`;
+  } else if (NewIcon === "50n") {
+    OldIcon.innerHTML = `<img src="images/50n.png" style="width: 300pt;"/>`;
+    weatherIconSay.innerHTML = `<div style="color: #4C5588;">Its "misty" at night.</div>`;
+  }
 }
 
 let currentButton = document.querySelector("#currentButton");
