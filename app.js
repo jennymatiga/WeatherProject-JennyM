@@ -99,6 +99,10 @@ function search(pop) {
   pop.preventDefault();
 
   function realData(value) {
+    let NewIcon = `${value.data.weather[0].icon}`;
+    let OldIcon = document.querySelector("#myicon");
+    alert(NewIcon);
+
     let newTemp = `${value.data.main.temp}`;
     let newHumidity = `${value.data.main.humidity}`;
     newTemp = Math.ceil(newTemp);
@@ -108,7 +112,46 @@ function search(pop) {
       (newTemp * 9) / 5 + 32
     )} °F`;
     humid.innerHTML = `with a humidity of ${newHumidity}%`;
+    //START -- if statement icon //
+    if (NewIcon == "03d")
+      OldIcon.innerHTML = `<img src="images/03d.png" style="width: 250pt;"/>`;
+    else if (NewIcon === "01d") {
+      OldIcon.innerHTML = `<img src="images/01d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "02d") {
+      OldIcon.innerHTML = `<img src="images/02d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "04d") {
+      OldIcon.innerHTML = `<img src="images/04d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "09d") {
+      OldIcon.innerHTML = `<img src="images/09d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "10d") {
+      OldIcon.innerHTML = `<img src="images/10d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "11d") {
+      OldIcon.innerHTML = `<img src="images/11d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "13d") {
+      OldIcon.innerHTML = `<img src="images/13d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "50d") {
+      OldIcon.innerHTML = `<img src="images/50d.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "01n") {
+      OldIcon.innerHTML = `<img src="images/01n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "02n") {
+      OldIcon.innerHTML = `<img src="images/02n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "03n") {
+      OldIcon.innerHTML = `<img src="images/03n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "04n") {
+      OldIcon.innerHTML = `<img src="images/04n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "09n") {
+      OldIcon.innerHTML = `<img src="images/09n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "10n") {
+      OldIcon.innerHTML = `<img src="images/10n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "11n") {
+      OldIcon.innerHTML = `<img src="images/11n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "13n") {
+      OldIcon.innerHTML = `<img src="images/13n.png" style="width: 250pt;"/>`;
+    } else if (NewIcon === "50n") {
+      OldIcon.innerHTML = `<img src="images/50n.png" style="width: 250pt;"/>`;
+    }
   }
+  //END -- if statement icon //
 
   // --- END -- Function on Search field//
 

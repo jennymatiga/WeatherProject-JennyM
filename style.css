@@ -1,7 +1,7 @@
 Body {
   padding-top: 50px;
   font-family: "Poppins", sans-serif;
-s}
+}
 .container {
   border: 8pt solid hsl(7, 67%, 91%);
   border-radius: 27.087pt;
@@ -82,12 +82,13 @@ p {
   padding-top: 48.4511pt;
   font-size: 20pt;
   color: #443036;
+  
 }
 
-.current-img {
-  width: 206.5217pt;
+/* .current-img {
+  width: 10px;
   margin-top: 44.4038pt;
-}
+} */
 .body-center {
   display: block;
   text-align: center;
@@ -104,6 +105,7 @@ p {
   color: #f7dbd7;
   line-height: 1;
   font-weight: 700;
+  margin-bottom: 20px;
   
 }
 
