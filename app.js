@@ -187,10 +187,13 @@ function displayForecast(response) {
       foreCastHTML =
         foreCastHTML +
         `<div class="col-lg-2 col-md-4 col-sm-4"  style="padding: 10px">${NewIcon}<div class="sub-weather-degrees">Max:
-        ${Math.ceil(fore.temp.max)}°C | Min: ${Math.ceil(fore.temp.min)}°C</div>
-              <div class="sub-days" id="date1">${
-                nameMonths[months]
-              }, ${Day}, ${year}</div>
+        ${Math.ceil(fore.temp.max)}° C | Min: ${Math.ceil(
+          fore.temp.min
+        )}° C</div>
+<div class="sub-weather-degrees">${Math.ceil(
+          (fore.temp.max * 9) / 5 + 32
+        )}° F | ${Math.ceil((fore.temp.min * 9) / 5 + 32)}° F</div>
+ <div class="sub-days" id="date1">${nameMonths[months]}, ${Day}, ${year}</div>
               <div class="sub-weekdays"id="week1">${formatDay(fore.dt)}</div>
             </div>`;
     }
@@ -227,18 +230,18 @@ function search(pop) {
     newTemp = Math.ceil(newTemp);
     let humid = document.querySelector("#humid");
     let currentDegrees = document.querySelector(".current-degrees");
-    currentDegrees.innerHTML = `${newTemp} °C`;
+    currentDegrees.innerHTML = `${newTemp}° C`;
     humid.innerHTML = `with a humidity of ${newHumidity}%.`;
     let weatherIconSay = document.querySelector(".weatherIconSay");
 
     //START -- if statement icon //
     function Celcius() {
       let currentDegrees = document.querySelector(".current-degrees");
-      currentDegrees.innerHTML = `${Math.ceil(newTemp)} °C`;
+      currentDegrees.innerHTML = `${Math.ceil(newTemp)}° C`;
     }
     function Far() {
       let currentDegrees = document.querySelector(".current-degrees");
-      currentDegrees.innerHTML = `${Math.ceil((newTemp * 9) / 5 + 32)} °F`;
+      currentDegrees.innerHTML = `${Math.ceil((newTemp * 9) / 5 + 32)}° F`;
     }
     let c = document.querySelector("#c");
     let f = document.querySelector("#f");
@@ -353,7 +356,7 @@ function MyNewDegrees(theDegrees) {
   let humid = document.querySelector("#humid");
   let currentDegrees = document.querySelector(".current-degrees");
   let newCity = document.querySelector(".current-country");
-  currentDegrees.innerHTML = `${Math.ceil(myTemperature)} °C`;
+  currentDegrees.innerHTML = `${Math.ceil(myTemperature)}° C`;
   let NewIcon = `${theDegrees.data.weather[0].icon}`;
   let OldIcon = document.querySelector("#myicon");
   humid.innerHTML = `with a humidity of ${myHumidity}%`;
@@ -364,11 +367,11 @@ function MyNewDegrees(theDegrees) {
   //--START-- Cel & Far Functions//
   function Celcius() {
     let currentDegrees = document.querySelector(".current-degrees");
-    currentDegrees.innerHTML = `${Math.ceil(myTemperature)} °C`;
+    currentDegrees.innerHTML = `${Math.ceil(myTemperature)}° C`;
   }
   function Far() {
     let currentDegrees = document.querySelector(".current-degrees");
-    currentDegrees.innerHTML = `${Math.ceil((myTemperature * 9) / 5 + 32)} °F`;
+    currentDegrees.innerHTML = `${Math.ceil((myTemperature * 9) / 5 + 32)}° F`;
   }
   let c = document.querySelector("#c");
   let f = document.querySelector("#f");
