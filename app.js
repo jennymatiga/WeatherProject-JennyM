@@ -121,12 +121,28 @@ function search(pop) {
     newTemp = Math.ceil(newTemp);
     let humid = document.querySelector("#humid");
     let currentDegrees = document.querySelector(".current-degrees");
-    currentDegrees.innerHTML = `${newTemp} °C  | ${Math.ceil(
-      (newTemp * 9) / 5 + 32
-    )} °F`;
+    currentDegrees.innerHTML = `${newTemp} °C`;
+
     humid.innerHTML = `with a humidity of ${newHumidity}%.`;
     let weatherIconSay = document.querySelector(".weatherIconSay");
+
     //START -- if statement icon //
+    /////////////////CELCIUS TO FAR/////
+
+    function Celcius() {
+      let currentDegrees = document.querySelector(".current-degrees");
+      currentDegrees.innerHTML = `${newTemp} °C`;
+    }
+
+    function Far() {
+      let currentDegrees = document.querySelector(".current-degrees");
+      currentDegrees.innerHTML = `${Math.round((newTemp * 9) / 5 + 32)} °F`;
+    }
+
+    let c = document.querySelector("#c");
+    let f = document.querySelector("#f");
+    c.addEventListener("click", Celcius);
+    f.addEventListener("click", Far);
 
     if (NewIcon == "03d") {
       OldIcon.innerHTML = `<img src="images/03d.png" style="width: 300pt;"/>`;
@@ -245,6 +261,23 @@ function MyNewDegrees(theDegrees) {
 
   newCity.innerHTML = `${myCountryNewName}, ${myCityNewName}`;
   let weatherIconSay = document.querySelector(".weatherIconSay");
+
+  ////////////////////////
+  function Celcius() {
+    let currentDegrees = document.querySelector(".current-degrees");
+    currentDegrees.innerHTML = `${myTemperature} °C`;
+  }
+
+  function Far() {
+    let currentDegrees = document.querySelector(".current-degrees");
+    currentDegrees.innerHTML = `${Math.round((myTemperature * 9) / 5 + 32)} °F`;
+  }
+
+  let c = document.querySelector("#c");
+  let f = document.querySelector("#f");
+  c.addEventListener("click", Celcius);
+  f.addEventListener("click", Far);
+  //////////////////////////
 
   if (NewIcon == "03d") {
     OldIcon.innerHTML = `<img src="images/03d.png" style="width: 300pt;"/>`;

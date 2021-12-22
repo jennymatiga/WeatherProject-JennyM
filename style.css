@@ -54,7 +54,18 @@ input[value="Search"] {
 }
 }
 
-/*input[value="°C "] {
+/* #c {
+  background-color: white;
+  border: 2px solid  #f48d99;
+  width: 44.3478pt;
+  height: 44.3478pt;
+  color: #f48d99;
+  border-radius: 6.5067pt;
+  font-size: 20pt;
+  margin: 10px;
+} */
+
+#f  {
   background-color: white;
   border: 2px solid  #f48d99;
   width: 44.3478pt;
@@ -65,17 +76,6 @@ input[value="Search"] {
   margin: 10px;
 }
 
-input[value="°F "] {
-  background-color: white;
-  border: 2px solid  #f48d99;
-  width: 44.3478pt;
-  height: 44.3478pt;
-  color: #f48d99;
-  border-radius: 6.5067pt;
-  font-size: 20pt;
-  margin: 10px;
-}
-*/
 
 
 p {
