@@ -72,7 +72,7 @@ else if (TimeHour > 17) {
     nameWeeks[Weeks]
   }, <strong style="font-weight: 700;">${
     TimeHour - 12
-  }: ${minute} pm </strong>here`;
+  }: ${minute} pm </strong>here.`;
 }
 //***** IF ELSE STATEMENT 4 ******//
 else if (TimeHour === 12) {
@@ -107,113 +107,13 @@ function search(pop) {
     moreStartWords.innerHTML = `and in `;
     let moreLastWords = document.querySelector(".moreLastWords");
     moreLastWords.innerHTML = ` it is `;
-    //START--date-time - in each countries//
-    // let NewDate = `${value.data.dt}`;
-    // let standardDate = new Date(NewDate * 00);
-    // alert(standardDate);
-
-    // let Day = standardDate.getDate();
-    // let minute = standardDate.getMinutes();
-    // let months = standardDate.getMonth();
-    // let Weeks = standardDate.getDay();
-    // let year = standardDate.getFullYear();
-    // let TimeHour = standardDate.getHours();
-
-    // // let currentDate = new Date();
-    // let timeAndDay = document.querySelector(".timeAndDay");
-    // let greetings = document.querySelector(".greetings");
-    // let Day = standardDate.getDate();
-    // let minute = standardDate.getMinutes();
-    // let months = standardDate.getMonth();
-    // let Weeks = standardDate.getDay();
-    // let year = standardDate.getFullYear();
-    // let TimeHour = standardDate.getUTCHours();
-    // let nameMonths = [
-    //   "January",
-    //   "February",
-    //   "March",
-    //   "April",
-    //   "May",
-    //   "June",
-    //   "July",
-    //   "August",
-    //   "September",
-    //   "October",
-    //   "November",
-    //   "December",
-    // ];
-
-    // let nameWeeks = [
-    //   "Sunday",
-    //   "Monday",
-    //   "Tuesday",
-    //   "Wednesday",
-    //   "Thursday",
-    //   "Friday",
-    //   "Saturday",
-    // ];
-    // let textCurrentDate = document.querySelector(".current-date");
-    // textCurrentDate.innerHTML = `${nameMonths[months]} ${Day}, ${year},`;
-    // // -- END --let variables //
-
-    // //--START-- if statement for time that also changes introduction //
-    // //***** IF ELSE STATEMENT 1 ******//
-    // if (TimeHour === 0) {
-    //   //minute if statement//
-    //   if (minute < 10) {
-    //     minute = `0${minute}`;
-    //   } //minute if statement--END//
-    //   greetings.innerHTML = `Hey, Early bird! its`;
-    //   timeAndDay.innerHTML = `${nameWeeks[Weeks]},<strong style="font-weight: 700;"> 12: ${minute} am </strong>and its`;
-    // }
-    // //***** IF ELSE STATEMENT 2 ******//
-    // else if (TimeHour < 12) {
-    //   //minute if statement//
-    //   if (minute < 10) {
-    //     minute = `0${minute}`;
-    //   } //minute if statement--END//
-    //   greetings.innerHTML = `Good Morning! Today is`;
-    //   timeAndDay.innerHTML = `${nameWeeks[Weeks]},<strong style="font-weight: 700;"> ${TimeHour}: ${minute} am </strong>and its`;
-    // }
-    // //***** IF ELSE STATEMENT 3 ******//
-    // else if (TimeHour > 17) {
-    //   //minute if statement//
-    //   if (minute < 10) {
-    //     minute = `0${minute}`;
-    //   }
-
-    //   //minute if statement--END//
-    //   greetings.innerHTML = `Good Evening! Today is`;
-    //   timeAndDay.innerHTML = `${
-    //     nameWeeks[Weeks]
-    //   }, <strong style="font-weight: 700;">${
-    //     TimeHour - 12
-    //   }: ${minute} pm </strong> and its`;
-    // }
-    // //***** IF ELSE STATEMENT 4 ******//
-    // else if (TimeHour === 12) {
-    //   //minute if statement//
-    //   if (minute < 10) {
-    //     minute = `0${minute}`;
-    //   } //minute if statement--END//
-    //   greetings.innerHTML = `Hello There! Today is`;
-    //   timeAndDay.innerHTML = `${nameWeeks[Weeks]}, <strong style="font-weight: 700;">${TimeHour}: ${minute} pm </strong> and its`;
-    // }
-    // //***** IF ELSE STATEMENT 5 ******//
-    // else {
-    //   //minute if statement//
-    //   if (minute < 10) {
-    //     minute = `0${minute}`;
-    //   } //minute if statement--END//
-    //   greetings.innerHTML = `Good Afternoon! Today is`;
-    //   timeAndDay.innerHTML = `${
-    //     nameWeeks[Weeks]
-    //   }, <strong style="font-weight: 700;">${
-    //     TimeHour - 12
-    //   }: ${minute} pm </strong> and its`;
-    // }
 
     //END--date-time - in each countries//
+    let myCountryNewName = value.data.sys.country;
+
+    let newCountry = document.querySelector("#MyNewCountry");
+    newCountry.innerHTML = `${myCountryNewName}, `;
+
     let NewIcon = `${value.data.weather[0].icon}`;
     let OldIcon = document.querySelector("#myicon");
     let newTemp = `${value.data.main.temp}`;
@@ -332,6 +232,9 @@ function MyNewDegrees(theDegrees) {
   let myHumidity = theDegrees.data.main.humidity;
   let myCityNewName = theDegrees.data.name;
   let myCountryNewName = theDegrees.data.sys.country;
+
+  let newCountry = document.querySelector("#MyNewCountry");
+  newCountry.innerHTML = ``;
   let humid = document.querySelector("#humid");
   let currentDegrees = document.querySelector(".current-degrees");
   let newCity = document.querySelector(".current-country");
@@ -339,6 +242,7 @@ function MyNewDegrees(theDegrees) {
   let NewIcon = `${theDegrees.data.weather[0].icon}`;
   let OldIcon = document.querySelector("#myicon");
   humid.innerHTML = `with a humidity of ${myHumidity}%`;
+
   newCity.innerHTML = `${myCountryNewName}, ${myCityNewName}`;
   let weatherIconSay = document.querySelector(".weatherIconSay");
 
