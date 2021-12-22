@@ -131,7 +131,7 @@ function search(pop) {
 
     function Celcius() {
       let currentDegrees = document.querySelector(".current-degrees");
-      currentDegrees.innerHTML = `${newTemp} °C`;
+      currentDegrees.innerHTML = `${Math.ceil(newTemp)} °C`;
     }
 
     function Far() {
@@ -254,7 +254,7 @@ function MyNewDegrees(theDegrees) {
   let humid = document.querySelector("#humid");
   let currentDegrees = document.querySelector(".current-degrees");
   let newCity = document.querySelector(".current-country");
-  currentDegrees.innerHTML = `${myTemperature} °C `;
+  currentDegrees.innerHTML = `${Math.ceil(myTemperature)} °C`;
   let NewIcon = `${theDegrees.data.weather[0].icon}`;
   let OldIcon = document.querySelector("#myicon");
   humid.innerHTML = `with a humidity of ${myHumidity}%`;
@@ -265,7 +265,7 @@ function MyNewDegrees(theDegrees) {
   ////////////////////////
   function Celcius() {
     let currentDegrees = document.querySelector(".current-degrees");
-    currentDegrees.innerHTML = `${myTemperature} °C`;
+    currentDegrees.innerHTML = `${Math.ceil(myTemperature)} °C`;
   }
 
   function Far() {
