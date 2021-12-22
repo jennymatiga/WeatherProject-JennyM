@@ -136,7 +136,7 @@ function search(pop) {
 
     function Far() {
       let currentDegrees = document.querySelector(".current-degrees");
-      currentDegrees.innerHTML = `${Math.round((newTemp * 9) / 5 + 32)} °F`;
+      currentDegrees.innerHTML = `${Math.ceil((newTemp * 9) / 5 + 32)} °F`;
     }
 
     let c = document.querySelector("#c");
@@ -270,7 +270,7 @@ function MyNewDegrees(theDegrees) {
 
   function Far() {
     let currentDegrees = document.querySelector(".current-degrees");
-    currentDegrees.innerHTML = `${Math.round((myTemperature * 9) / 5 + 32)} °F`;
+    currentDegrees.innerHTML = `${Math.ceil((myTemperature * 9) / 5 + 32)} °F`;
   }
 
   let c = document.querySelector("#c");
